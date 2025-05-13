@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #444444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  color: #8d8b8b;
+  font-family: 'Butcherman', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  z-index: 1000;
+  transform: scale3d();
+  /* animation: fadeOut 2s ease 2s forwards; */
+  animation: zoom3d 1s ease 0.8s forwards;
+  animation:blurEffect 1.5s ease in;
+  
+}
+@keyframes blurEffect {
+  0% {
+    filter: blur(0px); /* Start with a high blur */
+    zoom:0%;
+    filter: invert(0);
+    
+  }
+
+  25%{
+    filter: blur(2px);
+   
+
+    zoom:50%;
+    
+
+  }
+  50% {
+    filter: blur(4px); /* Reduce the blur */
+    
+    zoom:100%;
+    
+  }
+  75%{
+    filter:blur(2px);
+    
+    zoom:50%;
+    
+  }
+  100% {
+    filter: blur(0px); /* End with no blur */
+    zoom: 0%;
+    
+  }
+}
+@keyframes zoom3d {
+  0% {
+    transform: scale3d(1, 1, 1);
+    
+  }
+  100% {
+    transform: scale3d(1.5, 1.5, 1.5);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.name{
+    position:absolute;
+    left: 5%;
+    font-size: 10px;
+    color: #4d4c4c;
+    
+    font-family: "Tagesschrift", system-ui;
+    font-weight: 300;
+    font-style: normal;
+
+
+}
+
+.calculator {
+    background-color: #000000;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 15px 16px 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.5s, box-shadow 0.5s;
+    display: none;
+    animation: zoom3d 1s reverse;
+    animation:blurEffect 2s ease in;
+    
+}
+@keyframes blurEffect {
+  0% {
+    filter: blur(0px); /* Start with a high blur */
+    
+    
+  }
+
+  25%{
+    filter: blur(25%);
+   
+
+    
+    
+
+  }
+  50% {
+    filter: blur(50%); /* Reduce the blur */
+    
+   
+    
+  }
+  75%{
+    filter:blur(25%);
+    
+   
+    
+  }
+  100% {
+    filter: blur(0); /* End with no blur */
+    
+    
+  }
+}
+
+
+.calculator:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+}
+
+.display {
+    background-color: #121212;
+    color: #ffffff;
+    height: 80px;
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    font-size: 30px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.previous-operation {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 5px;
+    height: 20px;
+    display: block;
+}
+
+.current-operation {
+    font-size: 35px;
+    height: 45px;
+    display: block;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.button {
+    height: 60px;
+    background-color: #333;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button.operator {
+    background-color: #444;
+}
+
+.button.operator:hover {
+    background-color: #666;
+}
+
+.button.clear {
+    background-color: #444;
+}
+
+.button.clear:hover {
+    background-color: #666;
+}
+
+.button.equals {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.button.equals:hover {
+    background-color: #ffdb4d;
+}
